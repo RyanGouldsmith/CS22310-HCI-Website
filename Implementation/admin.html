@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="style.css"> 
+    <title>CFA | Admin</title>
+</head>
+<body>
+    <header>
+         <h1> CFA Fishing Site </h1>
+         <p>Logged in as: AdminUser</p>
+    </header>
+        <nav>
+            <ul>
+                <li><a href='adminindex.html'>Home</a></li>
+                <li><a href='#'>Add User</a></li>
+                <li><a href='admincontact.html'>Contact</a></li>
+            </ul>
+        </nav>
+     <section id="breadcrumb">
+         <nav>
+            <ul>
+                <li><a href='adminindex.html'>Home</a></li>
+                <span>></span><li>Add User</li>
+            </ul>
+        </nav>
+    </section>
+       <form id="search">
+        <input type="text" placeholder="Search..">
+        <input type="submit" value="Search">
+        <input type="button" value="Log-out" onclick="logout()">
+    </form>
+    <script>
+        function logout(){
+            window.location = "index.html";   
+        }
+    </script>
+      <fieldset>
+        <legend>User Options</legend>
+          <span>Font Size</span>
+     <input type="button" onclick="changefont(12)" id="small" value="A">
+    <input type="button" onclick="changefont(16)" id="medium" value="A">
+    <input type="button" onclick="changefont(18)" id="large" value="A">
+    </fieldset>
+    <script>
+            function changefont(val){
+                var content = document.getElementById("font");
+                content.style.fontSize = val + "px";
+            }
+    
+    </script>
+    <section>
+        <h1 id="combine"> Register New User</h1>
+        <p id="combine"> Complete the form below to add a new user to the system</p>
+        <form onsubmit="confirm();">
+            <p>Type of User:</p><select>
+                <option default selected> Select a user</option>
+                <option> Fisherman</option>
+                <option> Buyer </option>
+                <option> Warehouse Staff </option>
+            </select>
+            <p>Name:</p> <input type="text" placeholder="eg.Fred" name="name" required>
+            <p>Password:</p><input type="password" name = "password" placeholder="password" required>
+            <p>Confirm Password: </p> <input type="password" name ="password" placeholder="password" required>
+            <input type="submit" name="register" value="Register">
+        </form>
+        <script>
+            function confirm(){
+                alert("User has been successfully created");  
+
+            }
+        </script>
+    </section>    
+</body>
+</html>

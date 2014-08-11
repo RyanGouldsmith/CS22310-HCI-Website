@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <header>
+         <h1> CFA Fishing Site </h1>
+        <nav>
+            <ul>
+                <li><a href='adminindex.html'>Home</a></li>
+                <li><a href='admin.html'>Add User</a></li>
+                <li><a href='#'>Contact</a></li>
+            </ul>
+            <p> WarehouseUser</p>
+        </nav>
+    </header>
+    <section>
+        <h1> Contact us</h1>
+        <p> Please send any queries to the address, or fill out the contact form</p>
+        <h1> Address </h1>
+        <p1> 123 Fishery Lane</p1>
+        <p1> Trout</p1>
+        <p1> F1S H3S</p1>
+        <h1> Telephone </h1>
+        <p1> 01235678909876</p1>
+        <h1> Contact Form </h1>
+        <form>
+            First Name: <input type="text" placeholder="First Name">
+            Last Name: <input type="text" placeholder="Last Name">
+            Email Address: <input type="email" placeholder="example@email.co.uk">
+            Query: <textarea wrap= "hard" placeholder="Your Query"></textarea>
+        </form>
+    </section>    
+</body>
+</html>

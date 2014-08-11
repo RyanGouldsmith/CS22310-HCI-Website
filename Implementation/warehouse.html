@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>CFA | Warehouse Staff</title>
+</head>
+<body onload="hide()">
+    <script>
+        function hide(){
+         document.getElementById("cod").style.display = "none";  
+        document.getElementById("Tuna").style.display = "none";
+        }
+    </script>
+    <header>
+         <h1> CFA Fishing Site </h1>
+        <p>Logged in as: WarehouseUser</p>
+    </header>
+       <nav>
+            <ul>
+                <li><a href='warehouseindex.html'>Home</a></li>
+                <li><a href='#'>Combine Batches</a></li>
+                <li><a href='warehousecontact.html'>Contact</a></li>
+            </ul>
+        </nav>
+     <section id="breadcrumb">
+         <nav>
+            <ul>
+                <li><a href='warehouseindex.html'>Home</a></li>
+                <span>></span><li>Combine Batches</li>
+            </ul>
+        </nav>
+    </section>
+     <form id="search">
+        <input type="text" placeholder="Search..">
+        <input type="submit" value="Search">
+        <input type="button" value="Log-out" onclick="logout()">
+    </form>
+    <script>
+        function logout(){
+            window.location = "index.html";   
+        }
+    </script>
+      <fieldset>
+        <legend>User Options</legend>
+          <span>Font Size</span>
+     <input type="button" onclick="changefont(12)" id="small" value="A">
+    <input type="button" onclick="changefont(16)" id="medium" value="A">
+    <input type="button" onclick="changefont(18)" id="large" value="A">
+    </fieldset>
+    <script>
+            function changefont(val){
+                var content = document.getElementById("font");
+                content.style.fontSize = val + "px";
+            }
+    
+    </script>
+       <h1 id="combine">Combine Batches</h1>
+    <p id="combine"> Select a species, then select available batches below of the same species to auction the fish!</p>
+    <form method = "post" onsubmit="return testsubmit();">
+         <p>Species:</p><select onChange="show_values()" id="species" required>
+                    <option default>Select Species</option>
+                   <option>Cod</option>
+                 <option>Tuna</option>
+                 </select>
+        <section id="cod">
+             <p>Add available Batch:</p> 
+            <section id="closeda">
+            <p>Batch: <span>#020</span></p>
+            <p>Crates: <span>2</span></p>
+            <p>Species: <span>Cod</span></p>
+            <p>Age: <span>1 Hour</span></p>
+            <p>Size: <span>Small</span></p>
+            <p>Weight:<span>5kg</span></p>
+                <p>Select:<input type="checkbox" name="cod"></p>
+            </section>
+            <section id="closeda">
+            <p>Batch: <span>#045</span></p>
+            <p>Crates: <span>4</span></p>
+            <p>Species: <span>Cod</span></p>
+             <p>Age: <span>30 minutes</span></p>
+            <p>Size: <span>Small</span></p>
+            <p>Weight: <span>10kg</span></p>
+            <p>Select:<input type="checkbox" name="cod"></p>
+            </section>
+            <input type="submit" value="Send to Auction">
+        </section>
+        <section id="Tuna">
+            <p>Add available Batch:</p> 
+        <section id="closeda">
+            <p>Batch: <span>#034</span></p>
+            <p>Crates: <span>1</span></p>
+            <p>Species: <span>Tuna</span></p>
+             <p>Age: <span>3 Hours</span></p>
+            <p>Size: <span>Medium</span></p>
+            <p>Weight: <span>15kg</span></p>
+            <p>Select:<input type="checkbox" name="tuna"></p>
+        </section>
+        <section id="closeda">
+            <p>Batch: <span>#055</span></p>
+            <p>Crates: <span>1</span></p>
+            <p>Species: <span>Tuna</span></p>
+             <p>Age: <span>2 Hour</span></p>
+            <p>Size: <span>Medium</span></p>
+            <p>Weight: <span>20kg</span></p>
+            <p>Select: <input type="checkbox" name="tuna"></p>
+        </section>
+            <input type="submit" value="Send to Auction">
+        </section>
+         
+    </form>
+    <script>
+        function show_values(){
+            var value = document.getElementById("species").value;
+            var cod = document.getElementById("cod");
+            var tuna = document.getElementById("Tuna");
+            if(value == "Cod"){
+                tuna.style.display = "none";                
+                cod.style.display = "inline";
+            } else if (value == "Tuna"){
+                cod.style.display = "none";
+                tuna.style.display = "inline";
+            } else { 
+                cod.style.display = "none";
+                tuna.style.display = "none";
+            }
+        }
+        function testsubmit(){
+            alert("Lot created for auction");
+            return false;
+        }
+    
+    </script>
+    
+        <h1> Available Batches </h1>
+        <section id="closeda">
+            <p>Batch: <span>#020</span></p>
+            <p>Crates: <span>2</span></p>
+            <p>Species: <span>Cod</span></p>
+            <p>Age: <span>1 Hour</span></p>
+            <p>Size: <span>Small</span></p>
+            <p>Weight:<span>5kg</span></p>
+        </section>
+        <section id="closeda">
+            <p>Batch: <span>#045</span></p>
+            <p>Crates: <span>4</span></p>
+            <p>Species: <span>Cod</span></p>
+             <p>Age: <span>30 minutes</span></p>
+            <p>Size: <span>Small</span></p>
+            <p>Weight: <span>10kg</span></p>
+        </section>
+        <section id="closeda">
+            <p>Batch: <span>#034</span></p>
+            <p>Crates: <span>1</span></p>
+            <p>Species: <span>Tuna</span></p>
+             <p>Age: <span>3 Hours</span></p>
+            <p>Size: <span>Medium</span></p>
+            <p>Weight: <span>15kg</span></p>
+        </section>
+        <section id="closeda">
+            <p>Batch: <span>#055</span></p>
+            <p>Crates: <span>1</span></p>
+            <p>Species: <span>Tuna</span></p>
+             <p>Age: <span>2 Hour</span></p>
+            <p>Size: <span>Medium</span></p>
+            <p>Weight: <span>20kg</span></p>
+        </section>
+    </form>
+</body>
+</html>

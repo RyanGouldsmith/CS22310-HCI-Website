@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>CFA | Contact</title>
+</head>
+<body>
+    <header>
+         <h1> CFA Fishing Site </h1>
+         <p>Logged in as: BuyerUser</p>
+         <p></p>
+    </header>
+     <nav>
+            <ul>
+                <li><a href='buyerindex.html'>Home</a></li>
+                <li><a href='auction.html'>Auction</a></li>
+                <li><a href='#'>Contact</a></li>
+            </ul>
+            
+        </nav>
+     <section id="breadcrumb">
+         <nav>
+            <ul>
+                <li><a href='buyerindex.html'>Home</a></li>
+                 <span>></span><li><a href='auction.html'>Auction</a></li>
+                <span>></span><li>Contact</li>
+            </ul>
+        </nav>
+    </section>
+       <form id="search">
+        <input type="text" placeholder="Search..">
+        <input type="submit" value="Search">
+        <input type="button" value="Log-out" onclick="logout()">
+    </form>
+    <script>
+        function logout(){
+            window.location = "index.html";   
+        }
+    </script>
+      <fieldset>
+        <legend>User Options</legend>
+          <span>Font Size</span>
+     <input type="button" onclick="changefont(12)" id="small" value="A">
+    <input type="button" onclick="changefont(16)" id="medium" value="A">
+    <input type="button" onclick="changefont(18)" id="large" value="A">
+    </fieldset>
+    <script>
+            function changefont(val){
+                var content = document.getElementById("font");
+                content.style.fontSize = val + "px";
+            }
+    
+    </script>
+    <section id="contact">
+        <h1> Contact us</h1>
+        <p> Please send any queries to the address, or fill out the contact form</p>
+        <h1> Address </h1>
+        <p> 123 Fishery Lane</p>
+        <p> Trout</p>
+        <p> F1S H3S</p>
+        <h1> Telephone </h1>
+        <p> 01235678909876</p>
+        <h1> Contact Form </h1>
+        <form onsubmit="check();">
+            <p>First Name:</p> <input type="text" placeholder="First Name" required>
+            <p>Last Name: </p> <input type="text" placeholder="Last Name" required>
+            <p>Your Email:</p> <input type="email" placeholder="example@email.co.uk" required>
+            <p>Query: </p><textarea wrap= "hard" placeholder="Your Query" required></textarea>
+            <input type="submit" value="Submit">
+        </form>
+         <script>
+            function check(){
+                alert("Query successfully submitted");    
+            }
+        
+        </script>
+    </section>    
+</body>
+</html>

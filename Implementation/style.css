@@ -1,0 +1,296 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,700);
+body{
+    background-color:#F0F0F0;
+    margin:0;
+    padding:0;
+    font-family: 'Open Sans', sans-serif;
+}
+header{
+    width:100%;
+    background-color:#3293BF;
+    padding-bottom: 2%;
+}
+header > h1{
+    color:#ffffff;
+    text-align: left;
+    margin-top:0;
+    margin-left:40%;
+    padding:0;
+}
+header > p{
+    position:relative;
+    float:right;
+    right:10px;
+    top:-45px;
+    color:#ffffff;
+}
+nav{
+    width:100%;
+    background-color:#B0ADAC;
+}
+nav ul { 
+        list-style: none;
+        margin-left:40%; 
+        margin-top:0%;
+}
+nav li { 
+        display:inline-block;
+        padding-right:10px;
+        padding-top:10px;
+        padding-bottom: 10px;
+        padding-left:10px;
+}
+nav li:hover{
+        background-color: white;
+        color:#FF0F00;
+}
+nav li a{ 
+        color:#0A428F;
+        text-decoration: none;
+}
+nav li a:hover{ 
+        color:#FF0F00;
+}
+h1{
+    text-align: center;
+}
+#breadcrumb nav{
+        background-color:#F0F0F0;
+}
+#breadcrumb nav ul { 
+        margin-left:0;
+        list-style: none;
+}
+#breadcrumb nav li:hover{
+         background-color:#F0F0F0;
+}
+#breadcrumb nav li{
+        color:#FF0F00;
+        display: inline-block;
+        padding-right: 10px;
+}
+#breadcrumb nav li a{ 
+        color:#0A428F;
+        text-decoration: none;
+}
+form{
+    margin-left:38%;
+    padding:10px 10px 10px 10px;
+    width:400px;
+}
+form input[type="text"], input[type="email"], textarea, input[type="password"]{
+    height:24px;
+    width: 80%;
+    margin-bottom: 10px 4px 10px 4px;
+    padding: 3px 3px 3px 5px;
+    font-family: 'Open Sans', sans-serif;
+}
+textarea{
+    height:150px;
+     border-style: inset;
+    border-width: 2px;
+}
+form input[type="submit"], form input[type="button"]{
+    padding:10px 15px 10px 15px;
+    margin-left:30%;
+    display:block;
+    font-family: 'Open Sans', sans-serif;
+}
+form select{
+    width:83%;
+    padding: 3px 3px 3px 5px;
+}
+form select option{
+    font-family: 'Open Sans', sans-serif;
+}
+#auction{
+    font-weight:bold;
+}
+#closeda{
+    margin-left:11%;
+    padding-left:20px;
+    padding-right:20px;
+    border-style:solid;
+    border-width:1pt;
+    display:inline-block;
+}
+#item{
+    margin-left:9%;
+    padding-left:20px;
+    padding-right:0px;
+    margin-bottom:10px;
+    border-style:solid;
+    border-width:1pt;
+    display:inline-block;
+}
+#contact h1, #contact p , #contact form{ 
+    margin-left:3.5%;
+    text-align: left;
+}
+#search{
+    width:60%;
+    float:right;
+    position:relative;
+    display:inline;
+    margin-top:-5%;
+}
+#combine{
+    text-align:center;
+    margin-left:20%;
+}
+#search input[type="text"]{
+    width:50%;  
+    font-family: 'Open Sans', sans-serif;
+}
+#search input[type="submit"], #search input[type="button"]{
+    display:inline;
+    margin-left: 0;
+    padding: 8px 8px 8px 8px;
+    font-family: 'Open Sans', sans-serif;
+}
+fieldset{
+    float:right;
+    width:15%;
+    display:inline;
+}
+#small{
+    font-size:12px;
+}
+#medium{
+    font-size:14px;
+}
+#large{
+    font-size:18px;
+}
+span{
+    font-weight:bold;
+}
+#closeda input[type="checkbox"]{
+    padding:10px 10px 10px 10px;
+    width:0.5cm; 
+    height:0.5cm;
+    background-color:#ffffff;
+}
+@media (max-width: 400px) {  
+    body {  
+        padding: 0 0; 
+        margin:0;
+    }   
+    header{
+        margin:0;
+        width:100%;
+        background-color:#3293BF;
+        padding-bottom: 20%;
+    }
+    header > h1{
+        text-align: center;
+        font-size:20pt;
+        margin:0;
+    }
+    header > p{
+    color:#ffffff;
+    top:20px;
+    }
+   form{
+       width:89%;
+       margin-left:0;
+     }
+    form input[type="text"],textarea, form input[type="email"], form input[type="password"]{
+        padding-right:0;
+        width:100%;
+        margin-left:0;
+    }
+    form select{
+        width:100%;
+        padding-right:0;
+        margin-left:0;
+    }
+    form input[type="submit"]{
+        width:100%;
+        margin-left:0;
+    }
+    h1{
+        font-size:15pt;
+        margin:0;
+    }
+    nav{
+        width:100%;
+        margin:0;
+        padding:0;
+        background-color:#B0ADAC;
+    }
+    nav ul { 
+        list-style: none;
+        margin-left: 0;
+       margin-top:0%;
+        padding:0;
+        width:100%;
+    }
+    nav li { 
+        display:inline-block;
+        width:100%;  
+        padding-right:0px;
+        padding-top:10px;
+        padding-bottom: 10px;
+        padding-left:0px;
+    }
+    nav li:hover{
+        background-color: white;
+        color:#FF0F00;
+    }
+    nav li a{ 
+        color:#0A428F;
+        margin-left:40%;
+        text-decoration: none;
+    }
+    nav li a:hover{ 
+        color:#FF0F00;
+    }
+    #breadcrumb nav{
+        width:100%;
+    }
+    
+#breadcrumb nav li:hover{
+         background-color:#F0F0F0;
+}
+#breadcrumb nav li{
+        display:inline;
+        padding-right: px;
+}
+#breadcrumb nav li a{ 
+    margin-left:0;
+}
+    #item{
+    margin-left:0%;
+    padding-left:20px;
+    padding-right:8px;
+    margin-bottom:10px;
+    border-style:solid;
+    border-width:1pt;
+    display:inline-block;
+    }
+    #item input[type="text"], #item input[type="submit"]{
+        width:90%;
+    }
+    #search{
+        width:100%;
+        float:right;
+        position:relative;
+        display:inline;
+        margin-top:-5%;
+    }
+    #search input[type="text"]{
+    width:80%;   
+    margin-left:10%;
+    }
+    #search input[type="submit"]{
+    display:inline;
+    width:83%;
+    margin-left: 10%;
+    padding: 8px 8px 8px 8px;
+}
+    fieldset{
+        display: none;
+    }
+    
+}  

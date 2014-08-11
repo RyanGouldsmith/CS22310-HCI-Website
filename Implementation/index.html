@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>CFA | Home</title>
+</head>
+<body>
+    <header>
+         <h1> CFA Fishing Site </h1>
+    </header>
+     <nav>
+            <ul>
+                <li><a href='#'>Home</a></li>
+                <li><a href='contact.html'>Contact</a></li>
+            </ul>
+        </nav>
+     <section id="breadcrumb">
+         <nav>
+            <ul>
+                <li>Home</li>
+            </ul>
+        </nav>
+    </section>
+     <form id="search">
+        <input type="text" placeholder="Search..">
+        <input type="submit" value="Search">
+    </form>
+      <fieldset>
+        <legend>User Options</legend>
+          <span>Font Size</span>
+     <input type="button" onclick="changefont(12)" id="small" value="A">
+    <input type="button" onclick="changefont(16)" id="medium" value="A">
+    <input type="button" onclick="changefont(18)" id="large" value="A">
+    </fieldset>
+    <script>
+            function changefont(val){
+                var content = document.getElementById("font");
+                content.style.fontSize = val + "px";
+            }
+    
+    </script>
+    <p>Home</p>
+    <p> Welcome to the Consolidated Fishing Association (CFA) Web based auction system. We pride ourself in representing 100 fishermen along
+        a coastline </p>
+    <p>To use this website efficiently, log-in below with your username and password</p>
+    <p>If you have any queries please contact </p>
+    <h1>Log-in here</h1>
+    <form id="login_form">
+       <p>Username:</p><input type="text" placeholder="Username" name="name" autofocus>
+       <p>Password:</p> <input type="password" placeholder="Password" name="password">
+        
+       <input type="button" value="Log-in" onclick="log()">
+    </form>
+    <script>
+        function log(){
+            var form = document.getElementById("login_form");
+            if(form.name.value == "admin" && form.password.value == "pass"){ 
+               window.location = "admin.html";  
+            } else if (form.name.value=="fisherman" && form.password.value=="pass"){
+                window.location = "fishermen.html";
+            } else if (form.name.value == "buyer" && form.password.value=="pass"){
+                window.location = "auction.html";
+            } else if (form.name.value == "warehouse" && form.password.value == "pass"){
+                window.location = "warehouse.html";
+            } else{
+                alert("Enter a valid username");   
+            }
+        }
+    </script>
+</body>
+</html>

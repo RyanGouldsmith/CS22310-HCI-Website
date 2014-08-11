@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <meta name="viewport" content="width=device-width">
+    <title>CFA | Fishermen</title>
+</head>
+<body id="font">
+    <header>
+         <h1> CFA Fishing Site </h1>
+        <p>Logged in as: FishermanUser</p>
+    </header>
+     <nav>
+            <ul>
+                <li><a href='fishermenIndex.html'>Home</a></li>
+                <li><a href='#'>Add Catch</a></li>
+                <li><a href='fishermencontact.html'>Contact</a></li>
+            </ul>
+    </nav>
+    <section id="breadcrumb">
+         <nav>
+            <ul>
+                <li><a href='fishermenIndex.html'>Home</a></li>
+                <span>></span><li>Add Catch</li>
+            </ul>
+        </nav>
+    </section>
+       <form id="search">
+        <input type="text" placeholder="Search..">
+        <input type="submit" value="Search">
+        <input type="button" value="Log-out" onclick="logout()">
+    </form>
+    <script>
+        function logout(){
+            window.location = "index.html";   
+        }
+    </script>
+    <fieldset>
+        <legend>User Options</legend>
+        <span>Font Size</span>
+     <input type="button" onclick="changefont(12)" id="small" value="A">
+    <input type="button" onclick="changefont(16)" id="medium" value="A">
+    <input type="button" onclick="changefont(18)" id="large" value="A">
+    </fieldset>
+    <script>
+            function changefont(val){
+                var content = document.getElementById("font");
+                content.style.fontSize = val + "px";
+            }
+    
+    </script>
+    <h1 id="combine">Enter Catch Information</h1>
+    <p id="combine"> Enter information about your catch in the form below and click submit to finish and print.</p>
+    <form onsubmit="check();">
+        <p>Number of Crates: </p><input type="text" placeholder="1" required pattern="\d+" title="Numbers only">
+        <p>Type of Fish: <p><select required>
+                        <option selected disabled style="display:none" id="defaultspecies"> Choose a species </option>
+                        <option> Tuna </option>
+                        <option> Salmon </option>
+                        <option> Cod </option>
+                        <option> Crab</option>
+                    </select>
+        <p>Size Category: </p><select required>
+                            <option selected disabled style="display:none" id="default">Choose a size</option>
+                            <option> Small</option>
+                            <option> Medium </option>
+                            <option> Large </option>
+                        </select>
+        <!-REFERENCE: http://stackoverflow.com/questions/12117024/decimal-number-regular-expression -->
+        <p>Weight (kg): </p><input type="text" placeholder="0" required pattern="\d*\.?\d+" title="Integer, or Decimal values only E.g: 10.5">
+        <input type="submit" value="Enter Batch and Print">
+    </form>
+    <h1>Edit Catch </h1>
+    <form>
+       <p>Crates: 5</p>
+        <p>Type of Fish: Cod</p>
+        <p>Size: Small</p>
+        <p>Weight: 10kg</p>
+        <input type="submit" value="Edit">
+    </form>
+    <script>
+        function check(){
+            var val = document.getElementById("defaultspecies").selected;
+            var vala = document.getElementById("default").selected;
+            if (val == true){
+                alert("Please Enter a valid species");
+            } else if (vala == true){
+                alert("Please enter a valid size");
+            }else { 
+                alert("Catch successfully submited");
+            }               
+        }
+    
+    </script>
+</body>
+</html>

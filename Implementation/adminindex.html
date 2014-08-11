@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+        <link rel="stylesheet" type="text/css" href="style.css">
+    <title>CFA | Home</title>
+</head>
+<body>
+    <header>
+         <h1> CFA Fishing Site </h1>
+        <p>Logged in as: AdminUser</p>        
+    </header>
+     <nav>
+            <ul>
+                <li><a href='#'>Home</a></li>
+                <li><a href="admin.html">Add User</a></li>
+                <li><a href='admincontact.html'>Contact</a></li>
+            </ul>
+    </nav>
+     <section id="breadcrumb">
+         <nav>
+            <ul>
+                <li>Home</li>
+            </ul>
+        </nav>
+    </section>
+      <form id="search">
+        <input type="text" placeholder="Search..">
+        <input type="submit" value="Search">
+        <input type="button" value="Log-out" onclick="logout()">
+    </form>
+    <script>
+        function logout(){
+            window.location = "index.html";   
+        }
+    </script>
+      <fieldset>
+        <legend>User Options</legend>
+          <span>Font Size</span>
+     <input type="button" onclick="changefont(12)" id="small" value="A">
+    <input type="button" onclick="changefont(16)" id="medium" value="A">
+    <input type="button" onclick="changefont(18)" id="large" value="A">
+    </fieldset>
+    <script>
+            function changefont(val){
+                var content = document.getElementById("font");
+                content.style.fontSize = val + "px";
+            }
+    
+    </script>
+    <p>Home</p>
+     <p> Welcome to the Consolidated Fishing Association (CFA) Web based auction system. We pride ourself in representing 100 fishermen along
+        a coastline </p>
+</body>
+</html>

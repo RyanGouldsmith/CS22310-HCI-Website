@@ -1,0 +1,398 @@
+\documentclass{article}
+\usepackage[margin=1in]{geometry}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{fancyhdr, lastpage}
+\usepackage{array}
+\usepackage{graphicx}
+\usepackage[colorlinks = true]{hyperref}
+\usepackage{multirow}
+\usepackage{url}
+\usepackage{chngpage}
+\usepackage{listings}
+\usepackage{longtable}
+\usepackage{breakurl}
+\setcounter{secnumdepth}{5}
+\setcounter{tocdepth}{6}
+\lhead{Student Number: 120056321}
+\rhead{Ryan Gouldsmith}
+\lfoot{Aberystwyth University / Computer Science}
+\cfoot{}
+\rfoot{\thepage{}  of  \pageref{LastPage}}
+\pagestyle{fancy}
+\begin{document}
+\thispagestyle{plain}
+\begin{flushleft}
+\rule[0.2cm]{16.5cm}{0.02cm}
+\end{flushleft}
+{\fontsize{15}{15}\selectfont \textbf {\centerline{Fishing Association Website Prototype 
+Development}}}
+\begin{flushleft}
+\rule[0.2cm]{16.5cm}{0.02cm}
+\end{flushleft}
+\vspace{5.2cm}
+\hfill\begin{minipage}{\dimexpr\textwidth-3.0cm}
+\begin{tabular}{l l}
+\multirow{1}{*}{\textit{Author: }}& Ryan Gouldsmith (ryg1) \\
+\\ \multirow{1}{*}{\textit{Date} } & \today \\
+\\ \multirow{1}{*}{\textit{Student Number:}}& 120056321 \\ \\ 
+\end{tabular}
+\end{minipage}
+\newpage
+\tableofcontents{}
+\newpage
+\section{Task Analysis}
+\subsection{Rich Picture}
+The rich picture below will emphasise who is involved in the system, at a top level view.
+
+\begin{figure}[htp]
+\begin{adjustwidth}{-2cm}{0cm}
+\centering
+\includegraphics[scale=0.04]{TaskAnalysis/RichPic.jpg}
+\caption{Rich Picture for CFA application}
+\label{}
+\end{adjustwidth}
+\end{figure}
+
+\noindent Above in figure 1 shows the rich picture. At the centre of the hub I have the fishing website application that I will be constructing. From this I logically came up with four different ``actors'':
+\begin{itemize}
+	\item Buyers
+	\item Administrators
+	\item Fisherman/Members
+	\item Warehouse Staff
+\end{itemize}
+Each of these actors has actions which are unique to them. The arrows are uses to show the direction of the action taken, along with the description of the action. This shows a picture representation of each section of the system. eg, the buyer can see the end of the auction, make bids, receive bids and they use their own devices. The Auction is allowed to run for 4 hours before it closes, and the buyer interacts with the auction. The fishermen will be able to catch any fish and sell to larger organisations or send them to the warehouse, to do this they have to put them into batches, weight and label them. The warehouse staff can then set up lots based on the same species, these will then be set for auction and the bidders can bid.
+
+In figure 1, expands more on the overall system, rather than just the web based system, this allows for a more comprehensive understanding of the system.
+
+\subsection{Use-Case}
+The use-case diagrams are used to show the behavior of the system for any given user. I will be using the the four actors I identified in the rich picture to further enhance their interactions. I will be using a variety of notations in my diagrams to aid the implementation. There may be two different implementations of the use-case, one of which is prior to the computer system I am going to implement and the second is the post computerised implementation.
+
+\begin{figure}[htp]
+\centering
+\includegraphics[scale=0.50]{TaskAnalysis/fishermenUsecase.jpeg}
+\caption{Fisherman use-case}
+\label{}
+\end{figure}
+Figure 2 shows the use-case for a fisherman based on the requirement specification. I feel that this is shows all the functionality that is required by fishermen in this application. 
+\begin{center}
+\begin{tabular}{p{6cm}|p{6cm}}
+	\hline
+	\hline Use Case & Explanation\\ \hline
+	Sell to Larger Organisations & The fisherman are allowed to sell the fish to outside organisations in aid to raise more money, than that which they would receive at the auction.\\
+	\hline
+	Sort fish into batches & The fisherman's responsibility is to sort the fish into batches before sending them off to the warehouse. They're sorted as one per species. Each batch has a set of crates based on the species. \\
+	\hline
+	Weigh batch & Once the fisherman has sorted the fish into species they must then weigh the batch, in kg, before it can be labeled and sent to the warehouse.\\
+	\hline
+	Label batch & A label regarding the information about a batch should be printed. It should contain the number of batches and the number of crates per batch. There should also be the species, weight in kg, and size all printed on a single label. \\
+	\hline
+	Enter batches to Website & The fishermen should be able to enter all the information to the website regarding a certain catch. It should correspond to the information which is printed on the label. \\
+	\hline
+	Password access & The fishermen will need a allocated password which would allow them access to a given part of the website, which will allow them to enter the information correctly.\\
+	\hline 
+	\hline
+\end{tabular}
+\end{center} 
+\begin{figure}[htp]
+\centering
+\includegraphics[scale=0.50]{TaskAnalysis/purchasers.jpeg}
+\caption{The use-case diagram for a buyer actor}
+\label{}
+\end{figure}
+Figure 3 shows the use-case for a buyer, this is what is functionally required by the buyer. 
+\begin{center}
+\begin{longtable}{p{6cm}|p{6cm}}
+	\hline
+	\hline Use Case & Explanation\\ \hline
+	Won or Lost & The buyer, come the end of the auction, will be able to see whether they have won or lost their bid on the batch of fish.\\
+	\hline
+	Own Devices & The user will access the website off their own devices. \\
+	\hline
+	Password access & The buyer will have their won password to access their section of the website.\\
+	\hline
+	Other buyers bids & They will be able to see other buyers bids as to whether they will need to increase the bid. \\
+	\hline
+	Registration & They will need to be registered in ordered to bid. \\
+	\hline
+	Contact details & This is contain the users contact details.\\
+	\hline 
+	See Progress & They will be able to track the auction at any given time, and see if what the current bids are and their standings.\\
+	\hline 
+	See Auction has ended & They will be informed when the auction has ended and whether they won or lost on a lot.\\
+	\hline 
+	\hline
+\end{longtable}
+\end{center} 
+\begin{figure}[htp]
+\centering
+\includegraphics[scale=0.50]{TaskAnalysis/administrator.jpeg}
+\caption{The use-case diagram for an administrator}
+\label{}
+\end{figure}
+Figure 4 shows the use-case diagram for the administrator tasks based on the requirements specification, below is a description of each of those use-cases.
+\begin{center}
+\begin{longtable}{p{6cm}|p{6cm}}
+	\hline
+	\hline Use Case & Explanation\\ \hline
+	Add new Fishermen & The Administrator will be able to add a new fisherman, and set the appropriate privileges so they can enter the correct information.\\
+	\hline
+	Add new Warehouse Staff & The administrator will be able to create new warehouse staff members on the system, so that they can create newly landed batches.  \\
+	\hline
+	Add new buyers & The administrator will be able to create new buyers, so they can create the accounts and begin to bid on fish in the auction. \\
+	\hline
+	\hline
+\end{longtable}
+\end{center}\clearpage
+\begin{figure}[htp]
+\centering
+\includegraphics[scale=0.50]{TaskAnalysis/trainedStaff.jpeg}
+\caption{Warehouse Staff use-case Diagram}
+\label{}
+\end{figure}
+\noindent Figure 5, shows the use-case diagram for warehouse staff workers and how the specification states they interact as a whole. Below is an explanation of the use-cases in figure 5.
+\begin{center}
+\begin{tabular}{p{6cm}|p{6cm}}
+	\hline
+	\hline Use Case & Explanation\\ \hline
+	Creation of lots & They must put the batches of fish made available by the fishermen into attractive lots ready to be auctioned off.\\
+	\hline
+	Use Desktop Machine & The  Warehouse Staff will use the desktop machines to interact with the website, and enter the correct lots ready for auction.  \\
+	\hline
+	\hline
+\end{tabular}
+\end{center}
+~\\
+
+\noindent Having explained the use-cases separately I will now put together a system overview of the above, which will incorporate the web application. 
+\begin{figure}[htp]
+\centering
+\includegraphics[scale=0.50]{TaskAnalysis/OverallView.jpeg}
+\caption{Overall use of the Web Application}
+\label{}
+\end{figure}
+
+\noindent Figure 6 shows the overall use-case diagram for the website application. It shows that all the users are allowed to log into the site, as each user will have a restriction on what they can access. So a buyer account will not be able to enter in information about the fish, as the administrator will grant permission of that to the Fishermen account. The buyer will be able to buy batches of fish on the auction, by bidding for them against other buyers - this will require a check of the card details of the user, at the end of the purchase. Additionally, all the members are allowed to view the live auction as it takes place, as well as viewing all the batches. Finally, only fishermen and warehouse staff are allowed to sell batches of fish, this privilege  is given by the administrator.  
+\subsection{Data Flow}
+\noindent The Data flow diagram for the Fisher Web application will link the tasks of the user to the implementation of the task. It will show the process needing to be completed in order to complete the task of collecting the fish, or the user completing their purchases.
+\begin{figure}[htp]
+\centering
+\includegraphics[scale=0.5]{TaskAnalysis/dataflow.jpeg}
+\caption{The dataflow diagram for the application}
+\label{}
+\end{figure}
+\\\noindent Figure 7 shows the dataflow diagram for the web based application. This shows the logical way in how the application will link together from each of the tasks. Each of the External entities in the figure above represents an actor defined in Figure 2-5. First off for the application to work the administrator will have to get the details of all people wishing to use the system. They must then add fishermen, warehouse staff and buyers, so they can view appropriate sections of the website. Afterwards the fisherman must collect the fish, sorting them into batches and entering the information according to that batch to the website. Once this has been completed the Warehouse staff can evaluate the batches and create lots which are appropriate for an auction, and enter information in accordingly. 
+
+This is now where the web application can be used from a users perspective. They will be able to log on and monitor an auction as well as bidding on  available lots. This will update on the auction, and if their bid is the highest they will become the leading bidder. This process will happen for 4 hours, in which they will be able to see other bids and make increased bids. 
+
+After 4 hours, the auction will end. The buyers will then see whether they have won or lost the batch, if they have won they will validate the batch and any card details, to which they will confirm the order. The transaction will not be implemented in the website solution.
+\subsection{State transitions}
+State diagrams will be used to demonstrate the different interactions between the tasks, that the computerised system will perform.
+\begin{figure}[htp]
+\centering
+\includegraphics[scale=0.40]{TaskAnalysis/state.jpeg}
+\caption{State transition diagram for the Fish Application}
+\label{} 
+\end{figure}
+\noindent Figure 8 shows the interaction of the system and how they all link together. It shows that the staff controls sorting the fish into batches, and once the fish has been appropriately sorted the auction can begin - this is because the Warehouse staff have finished entering the information into the system. 
+
+The user can then log in and check the auction, for any batches in which they want to purchase. A bid or bids are placed on a batch. Then they can continue to check the auction and repeat the action. After 4hours, the auction will be finished, the item will be removed from stock. The users credentials will be checked and a confirmation will be sent; payments will not be dealt on the website.
+
+The curved arrows for this syntax means that they can have the choice of entering one of many items, they're not restricted to placing one bid. Or sorting one batch. Finally, each circle is represented as a state in the system. 
+\subsection{Hierarchical Task Analysis}
+
+\begin{figure}[htp]
+\begin{adjustwidth}{-1.5cm}{4cm}
+\centering
+\includegraphics[scale=0.50]{TaskAnalysis/HTaskAnalysis.jpeg}
+\caption{Hierarchal Task Analysis for the CFA website.}
+\label{}
+\end{adjustwidth}
+\end{figure}
+The above hierarchical task analysis will help me to define my user interface. The different levels of hierarchy shows exactly the navigation or pages that I will need when designing my prototype. This shows that I will need an auction page, contact form, combine batches, add new user and add catch information at least.
+
+\subsection{Other factors}
+Even though the above describes the task well, there are additional ways to analyse the scenario:
+\begin{itemize}
+ \item \textbf{Task frequency}  \\ The task is to run for 4 hours. So the system needs to be able to last for more than 4 hours at any one time. 
+ \item \textbf{Difficulty of learning}  \\ The System should not be difficult to use. As many of the users may be first time user, then it should be approachable for all ranges. Additionally, for fishermen the system should be intuitive as conditions are loud where they will be entering information into the system.
+\item \textbf{Importance of Training} \\ Training should be given to the Warehouse staff who put together the lots ready for the auction. Training should be given to Administrators to ensure they set up the system properly, as well as fishermen who enter the information on their devices.
+\item \textbf{Task criticality}  \\ This should involve a worksheet which works out the likely-hood of a module failing. This should be considered as it will be a system running at the same time. Things to consider would be \textbf{Server down} and \textbf{Device failure}.
+\item \textbf{Task Difficulty}  \\ The tasks should again be simplistic and easy to use, there should be no overall difficulties in either submitting a bid to the auction or entering information into the auction information.
+\item \textbf{Task Importance}  \\ Each task is important to ensure the software runs successfully. The Administrators have an importance of ensuring the passwords are allocated successfully. The fishermen have an importance of being able to enter the information in accordingly, and correctly. Finally, the users have an importance of making sure they can see the auction and place bids when appropriate.
+\end{itemize}
+\section{Design of Interaction}
+\subsection{Style of Interaction}
+There will be 2 styles of Interaction I will be using for my Web based application:
+\begin{itemize}
+	\item \textbf{Forms} \\
+	As this is a web based system then I will be using forms for interaction between the user and the system. All levels of the user will have to fill out a form during their interaction. For the fishermen they will have to fill out a form on the website for the fish caught using drop down menus reducing the chance of errors, administrators will have to complete a web form for entering users to the system will have a drop down for the type of user, and three text fields for the name, passwords and confirm password, Warehouse staff will complete forms for sorting into batches for the auction which will have a drop down list, as well as checkbox for the appropriate batch and finally the buyers will complete forms for placing bids to the auction which will contain a single textbox to enter the price. Each of the forms will be intuitive error checking will be implemented as well as double entry on important sections such as bidding. Additionally, the forms will give feedback, back to the user on all form completion. 
+	\item \textbf{Menus} \\
+	There will be no metaphor styled interaction, the website prototype will have menus and links. A reason this will be used will be because when the user goes back to the site, they may have forgotten how to use the site properly, as a result, by having a menu based interaction then it will remind them where exactly something is on a website. Therefore the navigation will need to be consistent across all users, with a slight variation for those who don't have the appropriate privileges to view sections of the website. Each of these links will not open a new window, it will open in the same window. Finally, there will be breadcrumbs used to show and give familiarity to the user where they are on the site.
+\end{itemize} 
+\subsection{Navigation}
+The navigation of the website will be as simplistic as possible. Any good website will have an ease-of-use navigation, which will give you a perspective of where you are on the site, making it easier for the user to know where you are.\cite{Navigation}
+
+For the buyer of the site, I feel that there will need to be a simple to use navigation for them to view the actions. Therefore, I feel that there should be an auction tab, which will direct you to the auction page. This section name is very short and the user knows that if it's an auction they will know where to go. Inside this page it will show the auction page ,where they can see a lot and bid appropriately.There should also be a home section, so they know where they're at as well as a contact section. 
+
+I feel that the web bar will have to be kept the same in order to keep consistency and allow the user to know where they are, and give some familiarity to the user. It should be kept in the same place on other accessible sections of the site site too, this will allow the user to instantly know where the navigation bar is.
+
+For the warehouse staff I feel that there should be a similar navigation, however, instead of the auction have a Combine Batches tab. This makes it have semantical meaning and clear to the warehouse staff where to add batch, so this makes it very clear that they would have to go to here to add batches accordingly to the auction. Therefore the navigation will be Home, Combine Batches and Contact.
+
+For the fishermen staff there should be a similar navigation too. It should replace the auction section with a Add Catch section, which will take them to the form which will enter the data for the associated catch. The rest of the sections should remain the same.  Therefore the navigation will be Home, Add Catch and Contact.
+
+I think that there should also be breadcrumbs to show where you are in the current websites hierarchy, this will give the user a sense of awareness. Additionally, I feel that a search bar will be implemented underneath the navigation so the user can search the website, as this is a prototype I will not be implementing the search itself. 
+
+All clicked hyperlinks will be standardised with the blue colour, as this brings familiarity to the user in knowing that they have visited a link. The hyperlinks will be in plain text so the user will know where to look. Links themselves will be blue ext with a grey box around the sections. The location will be near the top of the page underneath the siteID, as users are already familiar with navigation bars being placed at the top of the page. Finally, links will have good meaning as screen readers can parse the information accordingly and have good meaning behind them, therefore kept as short as possible as stated above. The hover colour for the link will be red and the background will be white, as this will standout. Finally, the breadcrumbs will follow a similar interaction where the links are blue and the current page is a red colour.\cite{LinkColour}
+%http://www.zeepedia.com/read.php?evaluation_scene_from_a_mall_web_navigation_human_computer_interaction&b=11&c=32
+\subsection{Layouts}
+The users should be able to scan the website easily, as majority of the users do not read the whole website. Therefore if I have any paragraphs, then I will have 1 idea per paragraph, so when they skim read the website they will pick up on more information. In addition to this the word count on my website will be low, as there will be less information for the user to take in. Only the key points from the website will be displayed.
+
+Another factor for the website will have the main title on each page, this will give the user a sense of where are. Additionally, it will allow them to identify where they are in the sites hierarchy.\cite{Layout} This will be made visible by being in bold in the center of the page, close to the top of the page. This means as soon as the user has clicked the link, then they will be sure where they are and if they have clicked the appropriate item in the navigation bar.
+
+In terms of colour for the website, I will use a maximum of 4 different colours, as any more than this and it will begin to make the user think. These colours will be simplistic and darker as the user will not need to be distracted by really bright colours.\cite{colour} By using a red or blue colour mix then I will also be making the website accessible for those who have eye-site deficiencies, thus making the website accessible for everyone who wishes to use it. \cite{ColourChoice}
+
+There will be one consistent font, this will be a web safe font\footnote{Universal fonts supported by all systems \cite{Webfont}} so that whatever device the users decide to use it will be accessible and will not need to worry about users having it installed on their system. 
+
+All submittable buttons will have semantical value, as it will stop the user thinking ``what does this button do'' for example, when placing bids the submittable button will show \textbf{Bid} where as in the log in section it will show \textbf{Log-In} on the button. These will be centralised under the form, so it is clear where the button is.
+
+As there will be a few forms, these forms will be centered to the middle of the page, which makes it easier to see where the user will enter a form. This will be consistent across all the different sub-websites. In addition to this key words will be made to be in bold, this will stand them out from other plain text. So for example, having the id of lot in bold will attract the user to that lot, and thus make sure they know which lot is what. 
+\subsection{Specific User features}
+Below is the 4 types of users which are going to be using the system. Followed by their features which they need for the website. 
+\begin{itemize}
+	\item \textbf{Fishermen}
+	\begin{itemize}
+		\item Need a log-in form specific to only fishermen, this needs to only accept specific fishermen. 
+		\item A form for entering sets of batches, number of crates, a drop down species list, drop down list showing the size (medium, small or large) as well as being able to enter the weight only accepting decimal/integers.
+		\item Once the form has been completed you should be able to print the form's data in the representation of a label.
+	\end{itemize}
+	\item \textbf{buyers}
+		\begin{itemize}
+			\item Show a label of the lot and all the information with the lot. As well as making a fresh bid on the item, this needs to be entered in as part of a form. 
+			\item Update the label and form when there are fresh bidders. 
+			\item In the label form, show in bold that the auction is closed, and in bold whether they have Won or Lost with the lots information.
+		\end{itemize}
+	\item \textbf{Warehouse staff}
+		\begin{itemize}
+			\item There needs to be a form the for warehouse staff which will have a drop down of a set species, a size field, age field. On submission it needs to create the new lot for the auction. 
+			\item Additionally there must be a label of available batches that are not been sent to the auction. This can be displayed as a label.  
+		\end{itemize}
+	\item \textbf{Administrators}
+	\begin{itemize}
+			\item Will require a form, with a drop down of the 3 different types (Warehouse Staff, Buyer and Fisherman) each must have a user-name and password field. 
+		\end{itemize}
+\end{itemize}
+\section{Implementation}
+To view my site, and use the website appropriately please visit:
+\url{http://users.aber.ac.uk/ryg1/cs22310/} if you wish to log in please use the following log-ins: \\
+\textbf{Admin:} Username = admin Password = pass \\ 
+\textbf{Fishermen:} Username = fisherman Password = pass \\ 
+\textbf{Buyer:} Username = buyer Password = pass \\ 
+\textbf{Warehouse Staff:} Username = warehouse Password = pass \\ 
+\\ \\
+However if you don't want to log in feel free to use the individual users sites: \\
+\textbf{Admin:}  \url{http://users.aber.ac.uk/ryg1/cs22310/adminindex.html} \\
+\textbf{Fishermen:} \url{http://users.aber.ac.uk/ryg1/cs22310/fishermenIndex.html} \\
+\textbf{Buyer: } \url{http://users.aber.ac.uk/ryg1/cs22310/buyerindex.html} \\
+\textbf{Warehouse Staff:} \url{http://users.aber.ac.uk/ryg1/cs22310/warehouseindex.html}
+\section{Evaluation of Prototype}
+I will now evaluate the prototype against Shneiderman’s 8 golden rules \cite{rules}. 
+The 8 golden rules are: 
+\begin{enumerate}
+ \item Strive for consistency
+\item Cater to universal usability
+\item  Offer informative feedback
+\item  Design dialogs to yield closure
+\item Prevent errors
+\item Permit easy reversal of actions
+\item Support internal locus of control
+\item Reduce short term memory load
+\end{enumerate}
+\subsection{Strive for consistency}
+This golden rule involves making sure that the design layout remains consistent. This could mean fonts, color, layout and menus. There however can be inconsistencies, and sometimes there are occasions in which it is needs to be different. 
+\\ \\
+From my own prototype, you can see that I have kept a consistent layout theme. In the menus themselves there is identical terminology used, for each of the menu names - this means that the user will know exactly where they are and what pages are which, especially when they return to use the site. The colours are consistent: I have used a constant theme of blue, black and grey throughout all aspects of my website. In terms of font, I have only used one font throughout the whole of my website, which is \textbf{Open Sans - sans-serif} Additionally for all forms, the layout is the same layout and style. I.e that all the colours are the same with the button being grey, each form having the same layout and the button being in the same place.
+The layout for user options of font size, breadcrumbs navigation and siteID are all in the same place throughout the site. All contact pages are identical. The only thing which changes in the top bar is which user is logged in. Finally, on the Submit buttons then there is a consistency that the first letter will be in upper case, this means that the user knows that they will be clicking the submit button.
+\subsection{Cater to universal usability}
+This golden rule involves making sure that my prototype can be used by a variety of users, either those being novice or experienced users, or those with disabilities.
+\\ \\
+For my prototype I have made available a choice for the user to change the font size on the page. I feel that this then becomes accessible to people of all disabilities, as if the user hasn't got a good enough eye site then they will be able to increase the font to allow them to use the site effectively. Additionally, I did extensive research into colour combinations so that my site could be accessible and used by as many people as possible. I eventually found that blue was a good colour for backgrounds, and thus the reason why my banner is blue, I feel as though my colours are accessible and I use the same colours throughout the entire website.
+
+Additionally, since the fishermen will be accessing the machine away from a computer, and will be using a handheld devices then I have made sure that the website responds to screen resolution \textbf{\textless 320px}. This means that the website will be usable on a variety of devices, and thus easing the use of input for the users by making the forms the size of the screen - rather than making them zoom into the form. This means there will be less chance of any errors and enhancing the usability of the site for Fishermen users and users on hand held devices.
+
+The website application doesn't offer a help facility such as a webpage which offers you help in how to use the site, however there are ways in which the website offers you help. On the drop down lists it informs you to select one of the options. When the user enters the information incorrectly then the user is shown an example of what values will be accepted into the form and where on the form the error occurred - no form will be submitted with these errors.
+\subsection{Offer informative feedback}
+This golden rule involves making sure the prototype give appropriate feedback, back to the user on their current actions on a website.
+\\ \\
+In terms of navigation, whenever the user changes the page the breadcrumbs on that page will highlight red to where they currently are in the website directory. The bread trail is there to inform the user on where they are in site; so by introducing one it provides informative feedback especially as it will change constantly as they cycle through the site.
+
+When the user bids on an item, they are promoted with a message stating, confirm your bid of £100, for example. If they confirm the bid then a message will show that the user's bid has been placed - even though there are 2 popups in a row, it allows the user to see that they have infact bidded on the item successfully. Alternatively, when they click cancel or x it will inform them that the bid has been cancelled. This continues to other parts of the site with registration of users, contact details and setting up batches. Whenever a form is completed then a message will inform the user of the current state of the system. 
+\subsection{Design dialogs to yield closure}
+This golden rule involves making sure that the user has knowledge that something has happened, and is not waiting on the system to do something, before they have to enter the information in again.
+\\ \\
+In the auction site, there are popups which happen when the user places a bid into the site. They will be asked to confirm that they wish to bid this value. This yield closure in the fact that they have another chance to verify the bid in which they're bidding. When they have decided whether they want to bid or no a pop up will appear of whether they have placed the bid or not. This will show closure on whether the bid has been successful or whether the bid wasn't successful. 
+
+In terms of winning the lot, the auction shows the closed auctions. They will have closure on whether they have won the lot or lost the lost by seeing whether the sign "you have won the lot" is present in the closed auction. Instead of taking them to an extra page the closure is on the auction page, after 4 hours. If they lose the lot, it will show another username.
+
+Whenever the user fills out a form correctly, or which has great importance such as a contact form or the submitting of information about fish, then when the information is correct the form produces a dialog alert which informs the user that the operation was either successful or un-successful. This adds closure to the user, knowing what's happening with the system that their interacting with.
+\subsection{Prevent errors}
+This rule states that the prototype should prevent errors occurring where ever possible, making for an enhanced user experience as it gives the user confidence in the system. 
+\\ \\
+Since my fishing prototype has to be used by fishermen at the port side, then I made sure that my entry for the fisherman user was as simple as possible. I did this by using drop down menus, so this limited any chance of inputting the wrong values into the appropriate fields by having pre-defined values such as type of fish and size. I could have used the HTML5 element \verb|type="number"| which would add arrows next to the input box, which would be easier and make sure that they enter numbers into certain elements - however, I felt that this was too ``fiddly'' especially for fishermen. As a result, I opted for a text box which would only have numbers entered into it. I feel this prevents errors, as it stops the user adding characters for size. 
+
+Additionally another implementation I used was a checkbox, instead of a radio box. This meant that if the warehouse staff made an error on which batch they wanted, they could make a change without any issues.
+
+Finally, on the form input if the user did not complete a section that was required then then the form will highlight that for the user, exactly where the issue is on the form. This brings to the attention of the user that something is wrong. 
+\subsection{Permit easy reversal of actions}
+This rule will mean that the user may make mistakes in the application and the application needs to have a way of checking against these mistakes.
+\\ \\ 
+In my prototype, in the auction section, when the user enters the bid into the system then they are presented with an option to whether they want to confirm the bid in which they have placed, if they have made a bid too high they can simply click the cancel button. The cancel button add familiarity to the user as it is a common phrase when bidding on an item. Additionally, the fisherman can edit the catch in which they have entered, especially as it's a busy area.  
+\subsection{Support internal locus of control}
+This golden rule refers to the user feeling as though they're in control throughout the experience of the website. 
+\\ \\
+I feel as though the warehouse staff will have an internal locus of control as they will be creating the lots for the auction. However, they will feel in control because from the drop down of species they will have to view and select lots which they feel will be good for an auction.
+
+Overall, I feel that the user is in full control over the website, with them having an option to change the font size also gives them control in the representation of the content. Additionally, I feel that there's no lag in the website which will make the user feel as though they're waiting for a response, and thus showing the website as a whole makes the user feel in control.
+\subsection{Reduce short-term memory load}
+This final rule will mean that the website is easier to use, so that when the user comes back to the website then they will be able remember information easily. 
+\\ \\ 
+I feel that my website prototype helps the user feel at ease when they return to the website. So for example, the user does not need to remember any prior information from one web-page to use another page on the site. An example of this is in the auction, where the user can see any live auction sites at the top half and any closed auction sites at the bottom half; this stops the user switching web-pages and remembering what lots they already had won or lost, during a live auction. 
+
+The only complex action considered to be in my site is the warehouse staff interaction. They have to remember that they have to select a species before seeing the available batches, before they create it into a lot - this might cause some confusion, however, they are described as trained staff so with the appropriate training this shouldn't be considered an issue. 
+\\ \\ 
+Overall, I feel that my website does well against the 8 golden rules and covers most of them comprehensively.
+\begin{thebibliography}{9}
+\bibitem{Navigation}
+ Jianfeng Wang \& Sylvain Senecal,
+  \emph{MEASURING PERCEIVED WEBSITE USABILITY}.
+  Page 4.
+\bibitem{Layout}
+Layout Design,
+\url{http://www.inf.ed.ac.uk/teaching/courses/hci/1011/lecs/13_websites.pdf}
+
+\bibitem{colour}
+Colour Guidelines, 
+\url{http://web.cs.wpi.edu/~dcb/courses/CS3041/Color-guidelines.html}
+
+\bibitem{Webfont}
+Web Fonts, 
+\url{http://www.bluegrassdigital.com/blog/2012/july/6/what-are-web-safe-fonts/}
+
+\bibitem{HCI}
+HCI, 
+\url{http://www.inf.ed.ac.uk/teaching/courses/hci/1011/lecs/13_websites.pdf}
+
+\bibitem{ColourChoice}
+Colour Accessibility, 
+\url{http://web.mst.edu/~rhall/web_design/color_accessibility.html}
+\bibitem{LinkColour}
+Links Colours and their perceptions
+\url{http://www.matthewwoodward.co.uk/experiments/how-link-colour-affects-conversion-split-test-results/}
+\bibitem{rules}
+8 golden rules 
+\url{https://www.cs.umd.edu/users/ben/goldenrules.html}
+\end{thebibliography}
+
+
+
+\end{document}

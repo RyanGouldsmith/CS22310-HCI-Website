@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>CFA | Auction</title>
+</head>
+<body>
+    <header>
+         <h1> CFA Fishing Site </h1>
+        <p>Logged in as: BuyerUser</p>
+    </header>
+     <nav>
+            <ul>
+                <li><a href='buyerindex.html'>Home</a></li>
+                <li><a href="#">Auction</a></li>
+                <li><a href='buyercontact.html'>Contact</a></li>
+            </ul>
+        </nav>
+     <section id="breadcrumb">
+         <nav>
+            <ul>
+                <li><a href='fishermenIndex.html'>Home</a>  </li>
+              <span>></span><li>Auction</li>
+            </ul>
+        </nav>
+    </section>
+    <form id="search">
+        <input type="text" placeholder="Search..">
+        <input type="submit" value="Search">
+        <input type="button" value="Log-out" onclick="logout()">
+    </form>
+    <script>
+        function logout(){
+            window.location = "index.html";   
+        }
+    </script>
+      <fieldset>
+        <legend>User Options</legend>
+          <span>Font Size</span>
+     <input type="button" onclick="changefont(12)" id="small" value="A">
+    <input type="button" onclick="changefont(16)" id="medium" value="A">
+    <input type="button" onclick="changefont(18)" id="large" value="A">
+    </fieldset>
+    <script>
+            function changefont(val){
+                var content = document.getElementById("font");
+                content.style.fontSize = val + "px";
+            }
+    
+    </script>
+    <h1 id="combine"> Live Auction</h1>
+    <p id="combine">Bid on the lots which you want to buy.</p>
+    <form id="item">
+        <p>Lot: <span id="auction">#009</span></p>
+        <p>Fish Type: <span id="auction">Salmon</span></p>
+        <p>Weight: <span id="auction">20kg</span></p>
+        <p>Size of Lot: <span id="auction">Small</span></p>
+        <p>Date caught: <span id="auction">19/04/2014</span></p>
+        <p>Current Bid: <span id="auction">&#163;114.50</span></p>
+        <p>Time remaining: <span id="auction">0 Hour 12 minutes 14 seconds</span></p>
+        Increase your Bid: <input type="text" placeholder="115" id="bid" required pattern="\d*\.?\d+" title="Integer, or Decimal values only E.g: 10.5">
+        <input type="submit" value="Bid" onclick="validate()">
+    </form>
+    <form id="item">
+        <p>Lot: <span id="auction">#014</span></p>
+        <p>Fish Type: <span id="auction">Cod</span></p>
+        <p>Weight: <span id="auction">70kg</span></p>
+        <p>Size of Lot: <span id="auction">Large</span></p>
+        <p>Date caught: <span id="auction">18/04/2014</span></p>
+        <p>Current Bid: <span id="auction">&#163;200.50</span></p>
+        <p>Time remaining: <span id="auction">3 Hours 54 minutes 14 seconds</span></p>
+        <!--REFERENCE http://stackoverflow.com/questions/12117024/decimal-number-regular-expression -->
+        Increase your Bid: <input type="text" placeholder="210" id="bid" required pattern="\d*\.?\d+" title="Integer, or Decimal bigs only E.g: 100.50">
+        <input type="submit" value="Bid" onclick="validate()">
+    </form>
+    <script>
+        function validate(){
+                var bid = document.getElementById("bid").value;
+               var return_val = confirm("Confirm your bid of \u00A3" + bid);
+                if (return_val == 1){
+                        alert("Bid Successful! \n Congratulations.");
+                } else{ 
+                    alert("Bid Cancelled");
+                }
+        }
+    
+    </script>
+    <h1>Closed Auction</h1>
+    <section id="closeda">
+        <p>Lot: <span id="auction">#001</span></p>
+        <p>Fish Type: <span id="auction">Salmon</span></p>
+        <p>Weight: <span id="auction">10kg</span>
+        <p>You Won the Lot</p>
+        <p>Bid: <span id="auction">&#163;100</span></p>
+    </section>
+    
+    <section id="closeda">
+        <p>Lot: <span id="auction">#002</span></p>
+        <p>Fish Type: <span id="auction">Tuna</span></p>
+        <p>Weight: <span id="auction">10kg</span>
+        <p>Winner: <span id="auction">fisheruser2</span></p>
+        <p>Bid: <span id="auction">&#163;40</span></p>
+    </section>
+    
+    <section id="closeda">
+        <p>Lot: <span id="auction">#005</span></p>
+        <p>Fish Type: <span id="auction">Cod</span></p>
+        <p>Weight: <span id="auction">30kg</span>
+        <p>Winner: <span id="auction">fishery</span></p>
+        <p>Bid: <span id="auction">&#163;100</span></p>
+    </section>
+    
+    <section id="closeda">
+        <p>Lot: <span id="auction">#008</span></p>
+        <p>Fish Type: <span id="auction">Crab</span></p>
+        <p>Weight: <span id="auction">60kg</span>
+        <p>You Won the Lot</p>
+        <p>Bid: <span id="auction">&#163;250</span></p>
+    </section>
+</body>
+</html>
